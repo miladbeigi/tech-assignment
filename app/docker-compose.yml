@@ -2,13 +2,12 @@ version: "3"
 services:
   strapi:
     container_name: strapi
-    build: .
-    image: strapi:latest
+    image: miladbeigi/strapiv4:0.1.1
     restart: unless-stopped
     env_file: .env
     environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_HOST: strapiDB
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
