@@ -35,6 +35,7 @@ for key in "${!params[@]}"; do
         --name "${key}" \
         --value "${params[$key]}" \
         --type SecureString \
+        --region $AWS_REGION \
         --overwrite \
         --no-cli-pager
 done

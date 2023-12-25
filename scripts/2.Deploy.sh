@@ -16,6 +16,8 @@ if [ -z "$Version" ] || [ -z "$Region" ]; then
     log "Version and Region are required"
     exit 1
 fi
+log "Version: $Version"
+log "Region: $Region"
 
 cd /home/ubuntu/tech-assignment/app
 
