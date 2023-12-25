@@ -13,7 +13,7 @@ resource "aws_lb" "application-lb" {
 
 resource "aws_lb_target_group" "this" {
   name        = "strapi-target-group"
-  port        = 1337
+  port        = 80
   protocol    = "HTTP"
   target_type = "instance"
   vpc_id      = var.vpc_id
@@ -22,7 +22,7 @@ resource "aws_lb_target_group" "this" {
     enabled             = true
     interval            = 10
     path                = "/"
-    port                = "1337"
+    port                = "80"
     protocol            = "HTTP"
     timeout             = 5
     healthy_threshold   = 2
