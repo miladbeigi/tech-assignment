@@ -34,8 +34,8 @@ resource "aws_security_group_rule" "alb-egress-strapi" {
   to_port                  = 80
   protocol                 = "tcp"
   type                     = "egress"
-  source_security_group_id = aws_security_group.alb.id
-  security_group_id        = aws_security_group.strapi-sg.id
+  source_security_group_id = aws_security_group.strapi-sg.id
+  security_group_id        = aws_security_group.alb.id
 }
 
 resource "aws_security_group_rule" "strapi-ingress-alb" {
