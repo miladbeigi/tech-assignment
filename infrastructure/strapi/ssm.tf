@@ -26,7 +26,18 @@ resource "aws_ssm_document" "main" {
   content = jsonencode({
     schemaVersion = "2.2"
     description   = "Run the deploy bash script"
-    parameters    = {}
+    parameters = {
+      Version = {
+        type        = "String"
+        description = "Version of the application"
+        default     = "0.1.1"
+      }
+      Region = {
+        type        = "String"
+        description = "AWS Region"
+        default     = "eu-west-1"
+      }
+    }
     mainSteps = [
       {
         action = "aws:runShellScript"
@@ -35,7 +46,7 @@ resource "aws_ssm_document" "main" {
           runCommand = [
             "cd /home/ubuntu/tech-assignment/scripts",
             "chmod +x ./2.Deploy.sh",
-            "bash ./2.Deploy.sh"
+            "bash ./2.Deploy.sh {{Version}} {{Region}}"
           ]
         }
       }

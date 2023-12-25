@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+Version=$1
+Region=$2
+
+# Check if Version and Region are passed as arguments
+if [ -z "$Version" ] || [ -z "$Region" ]; then
+    echo "Version and Region are required"
+    exit 1
+fi
+
 cd /home/ubuntu/tech-assignment/app
 
 declare -A params
@@ -14,18 +23,15 @@ params[cms_transfer_token_salt]=TRANSFER_TOKEN_SALT
 
 for key in "${!params[@]}"; do
     echo $key
-    value=$(aws ssm get-parameter --name $key --with-decryption --query Parameter.Value --output text --region eu-west-1)
+    value=$(aws ssm get-parameter --name $key --with-decryption --query Parameter.Value --output text --region $Region)
     if [ -z "$value" ]; then
         echo "Parameter $key is empty"
         exit 1
     fi
-    echo "${params[$key]}=$value" >>.env
+    echo "${params[$key]}=$value" >.env
 done
 
-docker pull miladbeigi/strapiv4:0.1.1
+docker pull miladbeigi/strapiv4:$Version
 
-# Build and deploy
-docker-compose up -d
-
-# Cleanup
-rm .env
+# Deploy the app
+TAG=$Version docker-compose up -d
