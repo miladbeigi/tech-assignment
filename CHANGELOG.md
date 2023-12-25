@@ -1,3 +1,14 @@
+## 0.4.0 (2023-12-25)
+
+### Feat
+
+- **infra**: add nat, enable private instance
+
+### Fix
+
+- **infra**: fix sg rules
+- **infra**: fix cycle sg rules
+
 ## 0.3.0 (2023-12-25)
 
 ### Feat
