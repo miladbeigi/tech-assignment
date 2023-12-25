@@ -1,5 +1,5 @@
 resource "aws_lb" "application-lb" {
-  name               = "strapi-elb"
+  name               = "strapi-alb"
   internal           = false
   load_balancer_type = "application"
   subnets            = var.public_subnets
@@ -7,7 +7,7 @@ resource "aws_lb" "application-lb" {
   ip_address_type    = "ipv4"
 
   tags = {
-    name = "strapi-elb"
+    name = "strapi-alb"
   }
 }
 

@@ -15,6 +15,6 @@ resource "aws_instance" "strapi" {
   })
 
   tags = {
-    "Name" = "strapi"
+    "Name" = "Strapi"
   }
 }
