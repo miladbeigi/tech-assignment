@@ -3,9 +3,17 @@
 Version=$1
 Region=$2
 
+LOG_FILE="/var/log/strapi-selfhosted-install.log"
+
+# Function to log messages to both stdout and a log file
+log() {
+    local message="$1"
+    echo "$message" | tee -a "$LOG_FILE"
+}
+
 # Check if Version and Region are passed as arguments
 if [ -z "$Version" ] || [ -z "$Region" ]; then
-    echo "Version and Region are required"
+    log "Version and Region are required"
     exit 1
 fi
 
@@ -22,17 +30,22 @@ params[cms_api_token_salt]=API_TOKEN_SALT
 params[cms_transfer_token_salt]=TRANSFER_TOKEN_SALT
 
 for key in "${!params[@]}"; do
-    echo $key
+    log $key
     value=$(aws ssm get-parameter --name $key --with-decryption --query Parameter.Value --output text --region $Region)
     if [ -z "$value" ]; then
-        echo "Parameter $key is empty"
+        log "Parameter $key is empty"
         exit 1
     fi
     echo "${params[$key]}=$value" >>.env
 done
 
+log "Pulling the latest version of the app from Docker Hub..."
 docker pull miladbeigi/strapiv4:$Version
 
-# Deploy the app
+log "Starting the app..."
 TAG=$Version docker-compose up -d
+
+log "Removing the .env file..."
 rm .env
+
+log "App started successfully"
