@@ -45,3 +45,19 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 else
     log "Docker-compose is already installed"
 fi
+
+# Check if git installed if not install it
+if ! [ -x "$(command -v git)" ]; then
+    log "Git is not installed. Installing Git..."
+    apt-get update -y
+    apt-get install -y git
+    log "Git installed successfully"
+    git --version >>"$LOG_FILE" 2>&1
+else
+    log "Git is already installed"
+fi
+
+# Clone the repository
+log "Cloning the repository..."
+cd /home/ubuntu
+git clone https://github.com/miladbeigi/tech-assignment/
