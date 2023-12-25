@@ -1,3 +1,10 @@
+## 0.4.1 (2023-12-25)
+
+### Refactor
+
+- **infra**: move strapi module to modules folder
+- **infra**: remove region related configs
+
 ## 0.4.0 (2023-12-25)
 
 ### Feat
