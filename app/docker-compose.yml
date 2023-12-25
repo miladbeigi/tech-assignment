@@ -3,7 +3,7 @@ services:
   webserver:
     container_name: webserver
     image: nginx:alpine
-    restart: unless-stopped
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -16,7 +16,7 @@ services:
   strapi:
     container_name: strapi
     image: miladbeigi/strapiv4:${TAG}
-    restart: unless-stopped
+    restart: always
     env_file: .env
     environment:
       DATABASE_HOST: strapiDB
@@ -44,7 +44,7 @@ services:
   strapiDB:
     container_name: strapiDB
     image: postgres:12.0-alpine
-    restart: unless-stopped
+    restart: always
     env_file: .env
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}

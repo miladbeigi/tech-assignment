@@ -9,7 +9,8 @@ module "vpc" {
   name = local.name
   cidr = var.vpc-cidr
 
-  azs             = ["eu-west-1a", "eu-west-1b"]
-  private_subnets = var.private-subnets-cidr
-  public_subnets  = var.public-subnets-cidr
+  azs                = ["eu-west-1a", "eu-west-1b"]
+  private_subnets    = var.private-subnets-cidr
+  public_subnets     = var.public-subnets-cidr
+  enable_nat_gateway = true
 }

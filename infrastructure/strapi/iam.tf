@@ -27,6 +27,7 @@ resource "aws_iam_role_policy_attachment" "strapi-role-policy-attachment" {
   policy_arn = data.aws_iam_policy.AmazonSSMManagedInstanceCore.arn
 }
 
-data "aws_iam_policy" "AmazonSSMManagedInstanceCore" {
-  arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+resource "aws_iam_role_policy_attachment" "strapi-role-policy-attachment-2" {
+  role       = aws_iam_role.strapi-role.name
+  policy_arn = data.aws_iam_policy.CloudWatchAgentServerPolicy.arn
 }
