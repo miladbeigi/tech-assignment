@@ -34,8 +34,8 @@ resource "aws_ssm_document" "main" {
         inputs = {
           runCommand = [
             "cd /home/ubuntu/tech-assignment/scripts",
-            "chmod +x ./deploy.sh",
-            "bash ./deploy.sh"
+            "chmod +x ./2.Deploy.sh",
+            "bash ./2.Deploy.sh"
           ]
         }
       }

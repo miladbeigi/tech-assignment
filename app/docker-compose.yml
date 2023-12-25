@@ -7,15 +7,15 @@ services:
     env_file: .env
     environment:
       DATABASE_HOST: strapiDB
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_CLIENT: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: mydb
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       APP_KEYS: ${APP_KEYS}
-      NODE_ENV: ${NODE_ENV}
+      NODE_ENV: PRODUCTION
     volumes:
       - ./config:/opt/app/config
       - ./src:/opt/app/src
@@ -38,7 +38,7 @@ services:
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_DB: mydb
     volumes:
       - strapi-data:/var/lib/postgresql/data/
     ports:
