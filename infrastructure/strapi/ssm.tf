@@ -35,7 +35,7 @@ resource "aws_ssm_document" "main" {
       Region = {
         type        = "String"
         description = "AWS Region"
-        default     = "eu-west-1"
+        default     = local.region
       }
     }
     mainSteps = [

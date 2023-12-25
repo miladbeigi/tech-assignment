@@ -1,8 +1,7 @@
 locals {
-  name   = "CMS"
-  env    = "Development"
-  team   = "Marketing"
-  region = "eu-west-1"
+  name = "CMS"
+  env  = "Development"
+  team = "Marketing"
 
   tags = {
     App  = local.name

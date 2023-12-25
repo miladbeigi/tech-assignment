@@ -4,3 +4,5 @@ variable "public-subnets-cidr" {
 }
 variable "vpc-cidr" {
 }
+variable "region" {
+}
