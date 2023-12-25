@@ -1,3 +1,9 @@
+## 0.3.0 (2023-12-25)
+
+### Feat
+
+- **app**: add nginx webserver and change infra ports
+
 ## 0.2.0 (2023-12-25)
 
 ### Feat
