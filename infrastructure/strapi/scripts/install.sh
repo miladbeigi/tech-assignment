@@ -61,8 +61,8 @@ fi
 # Check if repository directory exists if not clone it
 if [ ! -d "/home/ubuntu/tech-assignment" ]; then
     log "Tech-assignment repository directory does not exist. Cloning the repository..."
-    mkdir -p /home/ubuntu/tech-assignment
-    git clone
+    cd /home/ubuntu
+    git clone https://github.com/miladbeigi/tech-assignment.git
     log "Tech-assignment repository cloned successfully"
 else
     log "Tech-assignment repository directory already exists"

@@ -28,10 +28,11 @@ for key in "${!params[@]}"; do
         echo "Parameter $key is empty"
         exit 1
     fi
-    echo "${params[$key]}=$value" >.env
+    echo "${params[$key]}=$value" >>.env
 done
 
 docker pull miladbeigi/strapiv4:$Version
 
 # Deploy the app
 TAG=$Version docker-compose up -d
+rm .env
