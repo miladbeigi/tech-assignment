@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 # Check if bash version is 4.0 or higher
 if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then

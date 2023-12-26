@@ -1,10 +1,4 @@
-#!/usr/local/bin/bash
-
-# Check if bash version is 4.0 or higher
-if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
-    echo "Bash version 4.0 or higher is required."
-    exit 1
-fi
+#!/usr/bin/env bash
 
 cd ../infrastructure
 
