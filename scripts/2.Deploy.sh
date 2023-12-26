@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+### THIS RUNS ON THE EC2 INSTANCE ###
+
 Version=$1
 Region=$2
 
