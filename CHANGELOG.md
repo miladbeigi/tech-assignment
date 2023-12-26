@@ -1,3 +1,15 @@
+## 0.5.1 (2023-12-26)
+
+### Refactor
+
+- **scripts**: update docs, scripts
+
+## 0.5.0 (2023-12-25)
+
+### Feat
+
+- **infra**: update scripts, docs
+
 ## 0.4.1 (2023-12-25)
 
 ### Refactor
