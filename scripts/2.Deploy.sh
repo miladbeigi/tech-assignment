@@ -2,6 +2,14 @@
 
 ### THIS RUNS ON THE EC2 INSTANCE ###
 
+# Check if assumed role on the EC2 instance is valid
+ROLE_NAME=$(aws sts get-caller-identity --query Arn --output text | cut -d/ -f2)
+
+if [[ "$ROLE_NAME" != "strapi-role" ]]; then
+    echo "Assumed role is not valid ⚠️"
+    exit 1
+fi
+
 Version=$1
 Region=$2
 
