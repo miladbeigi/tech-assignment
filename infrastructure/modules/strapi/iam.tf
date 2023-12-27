@@ -1,4 +1,3 @@
-
 resource "aws_iam_instance_profile" "this" {
   name = "strapi-ec2-profile"
   role = aws_iam_role.strapi-role.name

@@ -47,7 +47,7 @@ log "Pulling the latest version of the app from Docker Hub..."
 docker pull miladbeigi/strapiv4:$Version
 
 log "Starting the app..."
-TAG=$Version docker-compose up -d
+TAG=$Version docker-compose --file docker-compose.prod.yml up -d
 
 log "Removing the .env file..."
 rm .env

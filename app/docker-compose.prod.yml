@@ -15,8 +15,7 @@ services:
 
   strapi:
     container_name: strapi
-    build: .
-    image: strapi:latest
+    image: miladbeigi/strapiv4:${TAG}
     restart: always
     env_file: .env
     environment:
@@ -29,14 +28,9 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       APP_KEYS: ${APP_KEYS}
-      NODE_ENV: development
+      NODE_ENV: PRODUCTION
     volumes:
-      - ./config:/opt/app/config
-      - ./src:/opt/app/src
-      - ./package.json:/opt/package.json
-      - ./yarn.lock:/opt/yarn.lock
-      - ./.env:/opt/app/.env
-      - ./public/uploads:/opt/app/public/uploads
+      - app-data:/opt/app/public/uploads
     networks:
       - strapi
     depends_on:
@@ -60,6 +54,7 @@ services:
 
 volumes:
   strapi-data:
+  app-data:
 
 networks:
   strapi:

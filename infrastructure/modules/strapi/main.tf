@@ -1,6 +1,6 @@
 resource "aws_instance" "strapi" {
   ami                    = var.instance_ami
-  instance_type          = var.machine_type
+  instance_type          = var.instance_type
   subnet_id              = var.private_subnets[0]
   vpc_security_group_ids = [aws_security_group.strapi-sg.id]
   iam_instance_profile   = aws_iam_instance_profile.this.name
@@ -9,7 +9,7 @@ resource "aws_instance" "strapi" {
     volume_size = 30
   }
 
-  user_data = templatefile(format("%s%s", path.module, "/cloud-config.text"), {
+  user_data = templatefile(format("%s%s", path.module, "/scripts/cloud-config.text"), {
     install_script = file("${path.module}/scripts/install.sh")
   })
 

@@ -10,6 +10,8 @@ locals {
   ]
 }
 
+# Put value=latest for all the parameters, later we will update the values using the script.
+
 resource "aws_ssm_parameter" "secrets" {
   for_each = toset(local.PARAMS)
   name     = each.value
@@ -19,6 +21,8 @@ resource "aws_ssm_parameter" "secrets" {
     ignore_changes = [value]
   }
 }
+
+# SSM Document to run the deploy script.
 resource "aws_ssm_document" "main" {
   name          = "Deploy-Strapi"
   document_type = "Command"
@@ -30,7 +34,7 @@ resource "aws_ssm_document" "main" {
       Version = {
         type        = "String"
         description = "Version of the application"
-        default     = "0.1.1"
+        default     = var.app-version
       }
       Region = {
         type        = "String"

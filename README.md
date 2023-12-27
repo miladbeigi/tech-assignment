@@ -100,3 +100,5 @@ To check if the application is running, we can run check the load balancer DNS n
 ```bash
 terraform output -raw alb_dns_name
 ```
+
+By going `/admin` we can set up the admin user and login to the admin panel.
