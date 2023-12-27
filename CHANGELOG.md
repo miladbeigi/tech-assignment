@@ -1,3 +1,9 @@
+## 0.6.0 (2023-12-27)
+
+### Feat
+
+- **infra**: add terraform state module
+
 ## 0.5.3 (2023-12-27)
 
 ### Refactor
