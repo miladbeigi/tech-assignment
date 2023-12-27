@@ -1,3 +1,15 @@
+## 0.5.3 (2023-12-27)
+
+### Refactor
+
+- **scripts**: update scripts to show command id and check the ec2 instance role
+
+## 0.5.2 (2023-12-27)
+
+### Refactor
+
+- **infra**: update vars, naming conventions
+
 ## 0.5.1 (2023-12-26)
 
 ### Refactor
