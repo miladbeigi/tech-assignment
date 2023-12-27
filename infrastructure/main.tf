@@ -7,3 +7,10 @@ module "strapi" {
   private_subnets = module.vpc.private_subnets
   app-version     = "0.1.1"
 }
+
+# module "terraform-state" {
+#   source                     = "./modules/terraform-state/"
+#   env                        = "staging"
+#   bucket_name                = "sample-bucket-to-store-terraform-state"
+#   dynamodb-prefix-table-name = "app"
+# }

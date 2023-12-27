@@ -102,3 +102,21 @@ terraform output -raw alb_dns_name
 ```
 
 By going `/admin` we can set up the admin user and login to the admin panel.
+
+# Troubleshooting
+
+### How to connect to the instance
+
+To connect to the instance, we can use SSM Session Manager. To connect to the instance, we can run the following command:
+
+```bash
+aws ssm start-session --target <instance-id>
+```
+
+### How to port forward to the instance to check the application locally
+
+To port forward to the instance, we can use SSM Session Manager. To port forward to the instance, we can run the following command:
+
+```bash
+aws ssm start-session --target <instance-id> --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["80"],"localPortNumber":["8080"]}'
+```
